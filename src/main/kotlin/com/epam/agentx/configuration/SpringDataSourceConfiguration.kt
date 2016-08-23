@@ -13,7 +13,7 @@ import javax.sql.DataSource
 @Configuration
 @EnableJpaRepositories("com.epam.agentx")
 @EnableTransactionManagement
-class SpringDataSourceConfiguration {
+open class SpringDataSourceConfiguration {
 
     @Bean
     fun dataSource(): DataSource {

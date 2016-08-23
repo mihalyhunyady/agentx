@@ -9,11 +9,14 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 @SpringBootApplication
 open class AgentXApplication {
 
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            SpringApplication.run(AgentXApplication::class.java, *args)
+        }
+    }
+
     @Bean
     fun objectMapperBuilder(): Jackson2ObjectMapperBuilder
             = Jackson2ObjectMapperBuilder().modulesToInstall(KotlinModule())
-
-    fun main(args: Array<String>) {
-        SpringApplication.run(AgentXApplication::class.java, *args)
-    }
 }
+
