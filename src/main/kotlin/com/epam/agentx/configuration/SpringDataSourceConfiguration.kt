@@ -1,9 +1,5 @@
 package com.epam.agentx.configuration
 
-import java.util.Properties
-
-import javax.sql.DataSource
-
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
@@ -11,6 +7,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter
 import org.springframework.transaction.annotation.EnableTransactionManagement
+import java.util.*
+import javax.sql.DataSource
 
 @Configuration
 @EnableJpaRepositories("com.epam.agentx")
@@ -19,14 +17,14 @@ class SpringDataSourceConfiguration {
 
     @Bean
     fun dataSource(): DataSource {
-        return DriverManagerDataSource("jdbc:mysql://localhost:3306/eventrecorderserver", "root", "root")
+        return DriverManagerDataSource("jdbc:mysql://localhost:3306/agentx", "root", "root")
     }
 
     @Bean
     fun entityManagerFactory(): LocalContainerEntityManagerFactoryBean {
         val em = LocalContainerEntityManagerFactoryBean()
         em.dataSource = dataSource()
-        em.setPackagesToScan(*arrayOf("com.epam.eventrecorder"))
+        em.setPackagesToScan(*arrayOf("com.epam.agentx"))
 
         val vendorAdapter = HibernateJpaVendorAdapter()
         em.jpaVendorAdapter = vendorAdapter
