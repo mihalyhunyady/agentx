@@ -16,12 +16,12 @@ import javax.sql.DataSource
 open class SpringDataSourceConfiguration {
 
     @Bean
-    fun dataSource(): DataSource {
+    open fun dataSource(): DataSource {
         return DriverManagerDataSource("jdbc:mysql://localhost:3306/agentx", "root", "root")
     }
 
     @Bean
-    fun entityManagerFactory(): LocalContainerEntityManagerFactoryBean {
+    open fun entityManagerFactory(): LocalContainerEntityManagerFactoryBean {
         val em = LocalContainerEntityManagerFactoryBean()
         em.dataSource = dataSource()
         em.setPackagesToScan(*arrayOf("com.epam.agentx"))

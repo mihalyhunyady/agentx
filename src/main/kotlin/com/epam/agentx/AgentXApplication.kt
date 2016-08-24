@@ -16,7 +16,7 @@ open class AgentXApplication {
     }
 
     @Bean
-    fun objectMapperBuilder(): Jackson2ObjectMapperBuilder
+    open fun objectMapperBuilder(): Jackson2ObjectMapperBuilder
             = Jackson2ObjectMapperBuilder().modulesToInstall(KotlinModule())
 }
 
