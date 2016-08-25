@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-class GameController @Autowired constructor(val roomRepository: RoomRepository, val factory: GameFactory) {
+class GameController @Autowired constructor(val roomRepository: RoomRepository, val gameFactory: GameFactory) {
     val runningGames = HashMap<Long, Game>()
 
     fun startGame(roomId: Long) {
         val room = roomRepository.findOne(roomId)
-        val game = factory.createGame(room)
+        val game = gameFactory.createGame(room)
         runningGames.putIfAbsent(roomId, game)
         game.start()
     }
