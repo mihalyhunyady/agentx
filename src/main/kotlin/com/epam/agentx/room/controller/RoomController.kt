@@ -30,10 +30,18 @@ class RoomController @Autowired constructor(val repository: RoomRepository, val 
 
 
     @RequestMapping("/room/:id", method = arrayOf(RequestMethod.POST))
-    fun startRoom(@PathVariable("id") roomId: Long) {
+    fun startGame(@PathVariable("id") roomId: Long) {
         gameController.startGame(roomId)
     }
 
+
+    @RequestMapping("/room/:id", method = arrayOf(RequestMethod.DELETE))
+    fun stopGame(@PathVariable("id") roomId: Long) {
+        gameController.stopGame(roomId)
+    }
+
+
+    //TODO vissza küldhetne egy általános státuszt is a szobáról
     @RequestMapping(value = "/room/:id", method = arrayOf(RequestMethod.GET))
     fun getPort(@PathVariable("id") roomId: Long): Response {
         val port: Int? = gameController.getPort(roomId)

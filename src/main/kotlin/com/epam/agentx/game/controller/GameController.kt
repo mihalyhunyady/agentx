@@ -9,18 +9,28 @@ import java.util.*
 
 @Component
 class GameController @Autowired constructor(val roomRepository: RoomRepository) {
-    val games = HashMap<Long, Game>()
+    val runningGames = HashMap<Long, Game>()
 
     fun startGame(roomId: Long) {
         val socket = ServerSocket(generateRandomPort())
         val room = roomRepository.findOne(roomId)
         val game = Game(room, socket)
-        games.putIfAbsent(roomId, game)
+        runningGames.putIfAbsent(roomId, game)
+        game.start()
+    }
+
+    fun stopGame(roomId: Long) {
+        val game = runningGames[roomId]
+        game?.let {
+            game.stop()
+            runningGames.remove(roomId)
+        }
     }
 
     fun getPort(roomId: Long): Int {
-        return games[roomId]?.serverSocket?.localPort ?: 0
+        return runningGames[roomId]?.serverSocket?.localPort ?: 0
     }
+
 
     private fun generateRandomPort(): Int {
         val random = Random()

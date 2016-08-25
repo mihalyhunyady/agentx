@@ -9,4 +9,4 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 
 @Entity
-data class Room(@Id @GeneratedValue val id: Long = 0, val name: String = "", @Cascade(value = CascadeType.ALL) @OneToMany var users: ArrayList<User> = ArrayList())
+data class Room(@Id @GeneratedValue val id: Long = 0, val name: String = "", @Cascade(value = CascadeType.SAVE_UPDATE) @OneToMany var users: ArrayList<User> = ArrayList())
