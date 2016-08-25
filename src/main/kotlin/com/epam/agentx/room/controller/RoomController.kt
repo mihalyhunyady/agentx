@@ -30,12 +30,12 @@ class RoomController @Autowired constructor(val repository: RoomRepository, val 
 
 
     @RequestMapping("/room/:id", method = arrayOf(RequestMethod.POST))
-    fun startRoom(@PathVariable("id") roomId: Int) {
+    fun startRoom(@PathVariable("id") roomId: Long) {
         gameController.startGame(roomId)
     }
 
     @RequestMapping(value = "/room/:id", method = arrayOf(RequestMethod.GET))
-    fun getPort(@PathVariable("id") roomId: Int): Response {
+    fun getPort(@PathVariable("id") roomId: Long): Response {
         val port: Int? = gameController.getPort(roomId)
         if (port != null)
             return Response(false, port, 200)
