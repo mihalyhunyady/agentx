@@ -1,7 +1,7 @@
 package com.epam.agentx.game.controller.GameController
 
-import com.epam.agentx.game.controller.model.Game
 import com.epam.agentx.game.factory.GameFactory
+import com.epam.agentx.game.service.Game
 import com.epam.agentx.room.repository.RoomRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component

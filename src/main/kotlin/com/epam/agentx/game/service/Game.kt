@@ -1,4 +1,4 @@
-package com.epam.agentx.game.controller.model
+package com.epam.agentx.game.service
 
 import com.epam.agentx.room.model.Room
 import mu.KLogging

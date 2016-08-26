@@ -24,13 +24,15 @@ class GameControllerTest {
     @Mock
     lateinit var roomRepository: RoomRepository
 
+
     @Before
     fun setUp() {
-
     }
 
     @Test
     fun testStartGame() {
+
+
         gameController.startGame(0)
 
     }
