@@ -17,7 +17,7 @@ class UserController @Autowired constructor(val repository: UserRepository) {
 
 
     @RequestMapping("/user/:id", method = arrayOf(RequestMethod.GET))
-    fun findAll(@PathVariable("id") id: Long) = repository.findOne(id)
+    fun findOneUser(@PathVariable("id") id: Long) = repository.findOne(id)
 
     @RequestMapping("/login", method = arrayOf(RequestMethod.POST))
     fun login(@RequestHeader username: String, @RequestHeader password: String): Response {
@@ -30,4 +30,22 @@ class UserController @Autowired constructor(val repository: UserRepository) {
         }
         return response
     }
+
+    @RequestMapping("/signup", method = arrayOf(RequestMethod.POST))
+    fun signUp(@RequestBody user: User): Response {
+        val response: Response?
+        if (userNotExists(user)) {
+            val userAdded = repository.save(user)
+            response = Response(false, userAdded.id, 200)
+        } else {
+            response = Response(false, "User already exists", 503)
+        }
+        return response
+    }
+
+    private fun userNotExists(user: User): Boolean {
+        val tmpUser: User? = repository.findByUsernameAndPassword(user.username, user.password)
+        return tmpUser == null
+    }
+
 }
