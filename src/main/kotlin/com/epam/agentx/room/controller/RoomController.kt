@@ -25,7 +25,7 @@ class RoomController @Autowired constructor(val repository: RoomRepository, val 
     fun joinRoom(@PathVariable("id") roomId: Long, @RequestBody userId: Long): Response {
         val user = userRepository.findOne(userId)
         val room = repository.findOne(roomId)
-        room.users.add(user)
+        room.addUser(user)
 
         return Response(false, "${user.displayName} joined to room: ${room.name}", 200)
     }

@@ -5,6 +5,6 @@ import com.epam.agentx.user.model.User
 
 
 class Game() {
-    val users: MutableList<User>? = null
+    val users: Players? = null
     val map: Map? = null
 }
