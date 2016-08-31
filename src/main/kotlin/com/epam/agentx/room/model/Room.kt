@@ -7,4 +7,4 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-data class Room(@Id @GeneratedValue val id: Long = 0, val name: String = "", var users: ArrayList<User> = ArrayList())
+data class Room(@Id @GeneratedValue val id: Long = 0, val name: String = "", var users: ArrayList<User> = ArrayList(), val port: Int)
