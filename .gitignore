@@ -61,6 +61,7 @@ fabric.properties
 .metadata
 bin/
 tmp/
+build/
 *.tmp
 *.bak
 *.swp
