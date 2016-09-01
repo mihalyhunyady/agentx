@@ -6,4 +6,4 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-data class MapCell(@Id @GeneratedValue val id: Int, val mapId: Int, val wordId: Int, val fieldType: Field, val col: Int, val row: Int, val visible: Boolean)
+data class MapCell(@Id @GeneratedValue val id: Int, val mapId: Int, val word: String, var fieldType: Field, var visible: Boolean)
