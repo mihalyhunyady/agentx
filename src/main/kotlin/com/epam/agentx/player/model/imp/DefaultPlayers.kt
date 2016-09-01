@@ -5,14 +5,15 @@ import com.epam.agentx.user.model.User
 
 class DefaultPlayers : Players {
 
-    var currentPlayer: Int = 0
+    var currentPlayerCounter: Int = 0
     lateinit var users: Array<PlayerState>
 
     override fun nextPlayer() {
-        currentPlayer += 1
+        currentPlayerCounter += 1
     }
 
-    override fun currentPlayer(): User {
-        return users[currentPlayer % users.size].user
-    }
+    override var currentPlayer: User = User()
+        get() = users[currentPlayerCounter % users.size].user
+
+
 }

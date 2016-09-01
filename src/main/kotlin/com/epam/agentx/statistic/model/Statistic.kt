@@ -5,4 +5,4 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-data class Statistic(@Id @GeneratedValue val id: Long, val userId: Int)
+data class Statistic(@Id @GeneratedValue val id: Long = 0, val userId: Int = 0)

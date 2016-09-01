@@ -7,4 +7,4 @@ import javax.persistence.Id
 import javax.persistence.OneToOne
 
 @Entity
-data class User(@Id @GeneratedValue val id: Long, val displayName: String, val username: String, val password: String, @OneToOne val statistics: Statistic)
+data class User(@Id @GeneratedValue val id: Long = 0, val displayName: String = "", val username: String = "", val password: String = "", @OneToOne val statistics: Statistic = Statistic())

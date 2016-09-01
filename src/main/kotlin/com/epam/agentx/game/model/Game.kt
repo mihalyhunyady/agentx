@@ -6,7 +6,7 @@ import com.epam.agentx.player.model.Players
 class Game(val players: Players, val map: Map, var association: String, var score: Score) {
 
     fun asStatus(): GameStatus {
-        return GameStatus(players.currentPlayer(), map, association, score)
+        return GameStatus(players.currentPlayer, map, association, score)
     }
 
     fun nextPlayer() {
