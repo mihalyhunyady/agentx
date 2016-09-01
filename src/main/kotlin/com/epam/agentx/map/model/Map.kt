@@ -6,7 +6,7 @@ import javax.persistence.Entity
 import javax.persistence.OneToMany
 
 @Entity
-data class Map(@Cascade(org.hibernate.annotations.CascadeType.ALL)
+class Map(@Cascade(org.hibernate.annotations.CascadeType.ALL)
                @OneToMany var cells: Array<Array<MapCell>>) {
 
 
