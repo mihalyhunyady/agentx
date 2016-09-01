@@ -1,5 +1,5 @@
 package com.epam.agentx.game.model
 
 enum class Event {
-    START, STOP, STEP
+    START, STOP, STEP, JOIN, LEAVE
 }
