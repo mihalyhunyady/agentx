@@ -1,6 +1,6 @@
 package com.epam.agentx.map.model
 
-import com.epam.agentx.map.field.Field
+import com.epam.agentx.map.field.Team
 import org.hibernate.annotations.Cascade
 import javax.persistence.Entity
 import javax.persistence.OneToMany
@@ -14,8 +14,8 @@ class Map(@Cascade(org.hibernate.annotations.CascadeType.ALL)
         cells[coordinate.x][coordinate.y].visible = true
     }
 
-    fun getField(coordinate: Coordinate): Field {
-        return cells[coordinate.x][coordinate.y].fieldType
+    fun getOwnerTeam(coordinate: Coordinate): Team {
+        return cells[coordinate.x][coordinate.y].teamType
     }
 
     fun getWord(coordinate: Coordinate): String {

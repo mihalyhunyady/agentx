@@ -1,5 +1,5 @@
 package com.epam.agentx.map.field
 
-enum class Field {
+enum class Team {
     BLUE, RED, NEUTRAL, KILLER
 }
