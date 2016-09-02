@@ -1,13 +1,8 @@
 package com.epam.agentx.map.model
 
 import com.epam.agentx.map.field.Team
-import org.hibernate.annotations.Cascade
-import javax.persistence.Entity
-import javax.persistence.OneToMany
 
-@Entity
-class Map(@Cascade(org.hibernate.annotations.CascadeType.ALL)
-               @OneToMany var cells: Array<Array<MapCell>>) {
+class Map(var cells: Array<Array<MapCell>>) {
 
 
     fun revealCell(coordinate: Coordinate) {
